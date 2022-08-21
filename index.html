@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+      body {
+        font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+      }
+
+      input {
+        margin-bottom: 10px;
+        width: 80px;
+        font-size: 13pt;
+      }
+      .table {
+        display: flex;
+        justify-content: center;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 28%;
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 28%;
+        flex: 1;
+        padding: 5px;
+      }
+
+      .fixed {
+        width: 130px;
+      }
+  </style>
+  <script>
+    c=299792458*1e-6; //um/ps
+    h=6.62607015e-34 / 1.602176634e-19 / 1e-12; //eV/THz
+    sigfigs = 5 //significant figures 
+    
+    function calc(value, index) {
+      if (index == 'eV') {
+        document.getElementById("meV").value = Number(value*1e3).toPrecision(sigfigs);
+        document.getElementById("THz").value = Number(value/h).toPrecision(sigfigs);
+        document.getElementById("um").value = Number(h*c/value).toPrecision(sigfigs);
+        document.getElementById("nm").value = Number(h*c/value*1e3).toPrecision(sigfigs);
+        document.getElementById("cm").value = Number(value*1e4/(h*c)).toPrecision(sigfigs);
+      } else if (index == 'meV') {
+        document.getElementById("eV").value = Number(value*1e-3).toPrecision(sigfigs);
+        value_eV = document.getElementById("eV").value;
+        document.getElementById("THz").value = Number(value_eV/h).toPrecision(sigfigs);
+        document.getElementById("um").value = Number(h*c/value_eV).toPrecision(sigfigs);
+        document.getElementById("nm").value = Number(h*c/value_eV*1e3).toPrecision(sigfigs);
+        document.getElementById("cm").value = Number(value_eV*1e4/(h*c)).toPrecision(sigfigs);
+      } else if (index == 'THz') {
+        document.getElementById("eV").value = Number(h*value).toPrecision(sigfigs);
+        value_eV = document.getElementById("eV").value;
+        document.getElementById("um").value = Number(h*c/value_eV).toPrecision(sigfigs);
+        document.getElementById("nm").value = Number(h*c/value_eV*1e3).toPrecision(sigfigs);
+        document.getElementById("cm").value = Number(value_eV*1e4/(h*c)).toPrecision(sigfigs);
+      } else if (index == 'um') {
+        document.getElementById("eV").value = Number(h*c/value).toPrecision(sigfigs);
+        value_eV = document.getElementById("eV").value;
+        document.getElementById("meV").value = Number(value_eV*1e3).toPrecision(sigfigs);
+        document.getElementById("THz").value = Number(value_eV/h).toPrecision(sigfigs);
+        document.getElementById("nm").value = Number(h*c/value_eV*1e3).toPrecision(sigfigs);
+        document.getElementById("cm").value = Number(value_eV*1e4/(h*c)).toPrecision(sigfigs);
+      } else if (index == 'nm') {
+        document.getElementById("eV").value = Number(h*c/value*1e3).toPrecision(sigfigs);
+        value_eV = document.getElementById("eV").value;
+        document.getElementById("meV").value = Number(value_eV*1e3).toPrecision(sigfigs);
+        document.getElementById("THz").value = Number(value_eV/h).toPrecision(sigfigs);
+        document.getElementById("um").value = Number(h*c/value_eV).toPrecision(sigfigs);
+        document.getElementById("cm").value = Number(value_eV*1e4/(h*c)).toPrecision(sigfigs);
+      } else if (index == 'cm') {
+        document.getElementById("eV").value = Number(h*c*value/1e4).toPrecision(sigfigs);
+        value_eV = document.getElementById("eV").value;
+        document.getElementById("meV").value = Number(value_eV*1e3).toPrecision(sigfigs);
+        document.getElementById("THz").value = Number(value_eV/h).toPrecision(sigfigs);
+        document.getElementById("nm").value = Number(h*c/value_eV*1e3).toPrecision(sigfigs);
+        document.getElementById("um").value = Number(h*c/value_eV).toPrecision(sigfigs);
+      }                  
+    }
+  </script>
+
+  <head>
+
+    <body>
+      <h2 style="text-align:center">Unit Conversion</h2>
+
+      <div class="table" >
+      <div class="row">
+        <div class="column">
+          <div class="fixed"><input type="text" onkeyup="calc(this.value, 'eV')" id="eV" value="1"/> eV</div>
+          <div class="fixed"><input type="text" onkeyup="calc(this.value, 'meV')" id="meV" value="1000"/> meV</div>
+          <div class="fixed"><input type="text" onkeyup="calc(this.value, 'THz')" id="THz" value="241.8"/> THz</div>
+        </div>
+        <div class="column">
+          <div class="fixed"><input type="text" onkeyup="calc(this.value, 'um')" id="um" value="1.24"/> um</div>
+          <div class="fixed"><input type="text" onkeyup="calc(this.value, 'nm')" id="nm" value="1239.8"/> nm</div>
+          <div class="fixed"><input type="text" onkeyup="calc(this.value, 'cm')" id="cm" value="8065.5"/> cm<sup>-1</sup></div>
+        </div>
+      </div>
+      </div>
+    </body>
+
+</html>
