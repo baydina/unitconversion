@@ -58,6 +58,7 @@
       } else if (index == 'THz') {
         document.getElementById("eV").value = Number(h*value).toPrecision(sigfigs);
         value_eV = document.getElementById("eV").value;
+        document.getElementById("meV").value = Number(value_eV*1e3).toPrecision(sigfigs);
         document.getElementById("um").value = Number(h*c/value_eV).toPrecision(sigfigs);
         document.getElementById("nm").value = Number(h*c/value_eV*1e3).toPrecision(sigfigs);
         document.getElementById("cm").value = Number(value_eV*1e4/(h*c)).toPrecision(sigfigs);
