@@ -1,4 +1,4 @@
-var cacheName = 'unit-convert';
+var cacheName = 'unitconversion';
 var filesToCache = [
   '/',
   '/index.html',
