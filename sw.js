@@ -1,9 +1,9 @@
 var cacheName = 'uc-pwa';
 var filesToCache = [
-  '/unitconversion/',
-  '/unitconversion/index.html',
-  '/unitconversion/css/style.css',
-  '/unitconversion/js/main.js'
+  '/',
+  '/index.html',
+  '/css/style.css',
+  '/js/main.js'
 ];
 
 self.addEventListener('install', function(e) {
