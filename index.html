@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unit Conversion</title>
   <link rel="canonical" href="https://baydina.github.io/unitconversion/" />
-  <link rel="manifest" href="./manifest.json">
+  <link rel="manifest" href="/unitconversion/manifest.json">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-icon" href="images/icon_152.png">
@@ -17,8 +17,13 @@
   <meta name="msapplication-TileColor" content="#FFFFFF">
 
   <script>
-    if (navigator.serviceWorker) {
-      navigator.serviceWorker.register('/unitconversion/sw.js', {scope: '/unitconversion/'})
+    window.onload = () => {
+      'use strict';
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+                .register('/unitconversion/sw.js', {scope: '/unitconversion/'});
+      }
     }
 
     c=299792458*1e-6; //um/ps
