@@ -3,6 +3,6 @@ window.onload = () => {
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-             .register('/unitconversion/sw.js');
+             .register('./sw.js');
   }
 }
