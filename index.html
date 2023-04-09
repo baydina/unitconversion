@@ -1,44 +1,18 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unit Conversion</title>
-  <style>
-      body {
-        font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-      }
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/icon_152.png">
+  <meta name="theme-color" content="white"/>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Unit Conversion">
 
-      input {
-        margin-bottom: 10px;
-        width: 85px;
-        font-size: 13pt;
-      }
-      .table {
-        display: flex;
-        justify-content: center;
-      }
-      .row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 28%;
-      }
-
-      .column {
-        display: flex;
-        flex-direction: column;
-        flex-basis: 28%;
-        flex: 1;
-        padding: 5px;
-      }
-
-      .fixed {
-        width: 135px;
-      }
-  </style>
   <script>
     c=299792458*1e-6; //um/ps
     h=6.62607015e-34 / 1.602176634e-19 / 1e-12; //eV/THz
@@ -90,12 +64,11 @@
     }
 
   </script>
-
-  <head>
-
-    <body>
-      <h2 style="text-align:center">Unit Conversion</h2>
-
+    
+</head>
+<body><!--- class="fullscreen">--->
+<!--  <div class="container">-->
+    <h2 style="text-align:center">Unit Conversion</h2>
       <div class="table" >
       <div class="row">
         <div class="column">
@@ -110,7 +83,7 @@
         </div>
       </div>
       </div>
-
-      <script src="js/main.js"></script>
-    </body>
+<!--  </div>-->
+  <script src="js/main.js"></script>
+</body>
 </html>

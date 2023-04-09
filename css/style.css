@@ -1,0 +1,31 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  input {
+      margin-bottom: 10px;
+      width: 85px;
+      font-size: 13pt;
+    }
+    .table {
+      display: flex;
+      justify-content: center;
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 28%;
+    }
+  
+    .column {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 28%;
+      flex: 1;
+      padding: 5px;
+    }
+  
+    .fixed {
+      width: 135px;
+    }
