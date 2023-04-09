@@ -3,6 +3,6 @@ window.onload = () => {
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-             .register('./sw.js');
+             .register('/unitconversion/sw.js', {scope: '/unitconversion/'});
   }
 }
