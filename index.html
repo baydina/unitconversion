@@ -17,6 +17,10 @@
   <meta name="msapplication-TileColor" content="#FFFFFF">
 
   <script>
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('/{repository}/sw.js', {scope: '/{repository}/'})
+    }
+
     c=299792458*1e-6; //um/ps
     h=6.62607015e-34 / 1.602176634e-19 / 1e-12; //eV/THz
     sigfigs = 5 //significant figures 
@@ -87,6 +91,6 @@
       </div>
       </div>
 <!--  </div>-->
-  <script src="js/main.js"></script>
+  <!-- <script src="js/main.js"></script> -->
 </body>
 </html>
