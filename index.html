@@ -28,6 +28,7 @@
 
     c=299792458*1e-6; //um/ps
     h=6.62607015e-34 / 1.602176634e-19 / 1e-12; //eV/THz
+    kB=1.380649e-23 / 1.602176634e-19; //eV/K
     sigfigs = 5 //significant figures 
     
     function calc(value, index) {
@@ -37,6 +38,7 @@
         document.getElementById("um").value = Number(h*c/value).toPrecision(sigfigs);
         document.getElementById("nm").value = Number(h*c/value*1e3).toPrecision(sigfigs);
         document.getElementById("cm").value = Number(value*1e4/(h*c)).toPrecision(sigfigs);
+        document.getElementById("K").value = Number(value/(kB)).toPrecision(sigfigs);
       } else if (index == 'meV') {
         document.getElementById("eV").value = Number(value*1e-3).toPrecision(sigfigs);
         value_eV = document.getElementById("eV").value;
@@ -44,6 +46,7 @@
         document.getElementById("um").value = Number(h*c/value_eV).toPrecision(sigfigs);
         document.getElementById("nm").value = Number(h*c/value_eV*1e3).toPrecision(sigfigs);
         document.getElementById("cm").value = Number(value_eV*1e4/(h*c)).toPrecision(sigfigs);
+        document.getElementById("K").value = Number(value_eV/(kB)).toPrecision(sigfigs);
       } else if (index == 'THz') {
         document.getElementById("eV").value = Number(h*value).toPrecision(sigfigs);
         value_eV = document.getElementById("eV").value;
@@ -51,6 +54,7 @@
         document.getElementById("um").value = Number(h*c/value_eV).toPrecision(sigfigs);
         document.getElementById("nm").value = Number(h*c/value_eV*1e3).toPrecision(sigfigs);
         document.getElementById("cm").value = Number(value_eV*1e4/(h*c)).toPrecision(sigfigs);
+        document.getElementById("K").value = Number(value_eV/(kB)).toPrecision(sigfigs);
       } else if (index == 'um') {
         document.getElementById("eV").value = Number(h*c/value).toPrecision(sigfigs);
         value_eV = document.getElementById("eV").value;
@@ -58,6 +62,7 @@
         document.getElementById("THz").value = Number(value_eV/h).toPrecision(sigfigs);
         document.getElementById("nm").value = Number(h*c/value_eV*1e3).toPrecision(sigfigs);
         document.getElementById("cm").value = Number(value_eV*1e4/(h*c)).toPrecision(sigfigs);
+        document.getElementById("K").value = Number(value_eV/(kB)).toPrecision(sigfigs);
       } else if (index == 'nm') {
         document.getElementById("eV").value = Number(h*c/value*1e3).toPrecision(sigfigs);
         value_eV = document.getElementById("eV").value;
@@ -65,6 +70,7 @@
         document.getElementById("THz").value = Number(value_eV/h).toPrecision(sigfigs);
         document.getElementById("um").value = Number(h*c/value_eV).toPrecision(sigfigs);
         document.getElementById("cm").value = Number(value_eV*1e4/(h*c)).toPrecision(sigfigs);
+        document.getElementById("K").value = Number(value_eV/(kB)).toPrecision(sigfigs);
       } else if (index == 'cm') {
         document.getElementById("eV").value = Number(h*c*value/1e4).toPrecision(sigfigs);
         value_eV = document.getElementById("eV").value;
@@ -72,6 +78,7 @@
         document.getElementById("THz").value = Number(value_eV/h).toPrecision(sigfigs);
         document.getElementById("nm").value = Number(h*c/value_eV*1e3).toPrecision(sigfigs);
         document.getElementById("um").value = Number(h*c/value_eV).toPrecision(sigfigs);
+        document.getElementById("K").value = Number(value_eV/(kB)).toPrecision(sigfigs);
       }                  
     }
 
@@ -87,6 +94,7 @@
           <div class="fixed"><input type="text" onkeyup="calc(this.value, 'eV')" id="eV" value="1"/> eV</div>
           <div class="fixed"><input type="text" onkeyup="calc(this.value, 'meV')" id="meV" value="1000"/> meV</div>
           <div class="fixed"><input type="text" onkeyup="calc(this.value, 'THz')" id="THz" value="241.8"/> THz</div>
+          <div class="fixed"><input type="text" onkeyup="calc(this.value, 'K')" id="K" value="11605"/> K</div>
         </div>
         <div class="column">
           <div class="fixed"><input type="text" onkeyup="calc(this.value, 'um')" id="um" value="1.24"/> um</div>
